@@ -208,6 +208,11 @@ $app->post("/checkout", function()
 		header('Location: /checkout');
 		exit;
 	}
+	if (!isset($_POST['desnumber']) || $_POST['desnumber'] === '') {
+		Address::setMsgError("Informe o Número.");
+		header('Location: /checkout');
+		exit;
+	}
 
 	if (!isset($_POST['desdistrict']) || $_POST['desdistrict'] === '') {
 		Address::setMsgError("Informe o bairro.");
@@ -726,5 +731,123 @@ $app->get("/products", function(){
 
 });
 
+$app->get("/bling", function()
+{
+
+	$apikey = "51f8938e23612f30829e5a781f65ff697df4be3e3f36a6b35209bd862d19fba47817e77e";
+	$outputType = "json";
+	$url = 'https://bling.com.br/Api/v2/produtos/' . $outputType;
+	function executeGetProducts($url, $apikey){
+		$curl_handle = curl_init();
+		curl_setopt($curl_handle, CURLOPT_URL, $url . '&apikey=' . $apikey);
+		curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, TRUE);
+		$response = curl_exec($curl_handle);
+		curl_close($curl_handle);
+		return $response;
+	}
+	$retorno = executeGetProducts($url, $apikey);
+	
+	$response = json_decode($retorno, true);
+
+	$productArr = [];
+	
+	for ($i = 0; $i <= count($response['retorno']['produtos']) -1; $i++) {
+	    array_push($productArr, $response['retorno']['produtos'][$i]);
+	}
+		
+	for ($i = 0; $i <= count($productArr)-1; $i++) {
+	    foreach ($productArr[$i] as $key => $value) {
+	        // echo "<h1>" . $value['imageThumbnail'] . "</h1>";
+	        echo "<p>" . $value['descricao'] . "</p>";
+	        echo "<p>Preço: R$" . number_format($value['preco'], 2, ',', ' ');
+	        
+	    }
+	}
+
+	/* Lista com todos os índices
+
+	[id] => 10446366046
+	[codigo] => REGATANKMILMC
+	[descricao] => Regata Masculina Dry Fit  Nike Miller Tamanho:M;Cor:Cinza
+	[tipo] => P
+	[situacao] => Ativo
+	[unidade] => UN
+	[preco] => 119.0000000000
+	[precoCusto] => 48.0000000000
+	[descricaoCurta] => Regata Dry Fit - 100% Poliester
+	[descricaoComplementar] => 
+	[dataInclusao] => 2020-12-05
+	[dataAlteracao] => 2020-12-05
+	[imageThumbnail] => 
+	[urlVideo] => 
+	[nomeFornecedor] => 
+	[codigoFabricante] => 
+	[marca] => Nike
+	[class_fiscal] => 
+	[cest] => 
+	[origem] => 0
+	[idGrupoProduto] => 0
+	[linkExterno] => 
+	[observacoes] => 
+	[grupoProduto] => 
+	[garantia] => 0
+	[descricaoFornecedor] => 
+	[idFabricante] => 
+	[categoria] => Array
+		(
+			[id] => 1160303
+			[descricao] => Categoria padrão
+		)
+
+	[pesoLiq] => 0.80000
+	[pesoBruto] => 0.80000
+	[estoqueMinimo] => 0.00
+	[estoqueMaximo] => 0.00
+	[gtin] => 
+	[gtinEmbalagem] => 
+	[larguraProduto] => 35
+	[alturaProduto] => 15
+	[profundidadeProduto] => 42
+	[unidadeMedida] => Centímetros
+	[itensPorCaixa] => 0
+	[volumes] => 0
+	[localizacao] => 
+	[crossdocking] => 2
+	[condicao] => Novo
+	[freteGratis] => N
+	[producao] => T
+	[dataValidade] => 1969-12-31
+	[spedTipoItem] => 
+	[clonarDadosPai] => S
+	[codigoPai] => REGATANKMIL
+
+	Roberto vc é o cara... vlw
+
+	estamos ai pra isso kkkkkkkk
+
+	
+					*/
+
+	
+	// //navega pelos elementos do array, imprimindo cada produto 
+	//
+	
+	// $apikey = "51f8938e23612f30829e5a781f65ff697df4be3e3f36a6b35209bd862d19fba47817e77e";
+	// $outputType = "json";
+	// $url = 'https://bling.com.br/Api/v2/contatos/' . $outputType;
+	// function executeGetContacts($url, $apikey){
+	// 	$curl_handle = curl_init();
+	// 	curl_setopt($curl_handle, CURLOPT_URL, $url . '&apikey=' . $apikey);
+	// 	curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, TRUE);
+	// 	$response = curl_exec($curl_handle);
+	// 	curl_close($curl_handle);
+	// 	return $response;
+	// }
+	// $retorno = executeGetContacts($url, $apikey);
+	// echo $retorno;
+	
+
+
+});
 
 ?>
