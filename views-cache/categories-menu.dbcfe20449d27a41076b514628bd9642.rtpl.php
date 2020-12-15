@@ -1,0 +1,1 @@
+<?php if(!class_exists('Rain\Tpl')){exit;}?><li><a href="/categories/19">Acessórios Esportivos</a></li><li><a href="/categories/18">Chuteira </a></li><li><a href="/categories/22">Luvas</a></li><li><a href="/categories/21">Roupa Esportivas</a></li><li><a href="/categories/17">Tênis </a></li>

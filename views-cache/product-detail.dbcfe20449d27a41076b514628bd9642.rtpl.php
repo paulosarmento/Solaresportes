@@ -19,8 +19,7 @@
                         <a href="/">Home</a>
                         <a href=""><?php echo htmlspecialchars( $product["desproduct"], ENT_COMPAT, 'UTF-8', FALSE ); ?></a>
                     </div>
-                    
-                    <div class="row">
+        
                         <div class="col-sm-6">
                             <div class="product-images">
                                 <div class="product-main-img">
@@ -28,6 +27,7 @@
                                 </div>
                             </div>
                         </div>
+                        
                         
                         <div class="col-sm-6">
                             <div class="product-inner">

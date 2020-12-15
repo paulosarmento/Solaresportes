@@ -208,6 +208,11 @@ $app->post("/checkout", function()
 		header('Location: /checkout');
 		exit;
 	}
+	if (!isset($_POST['desnumber']) || $_POST['desnumber'] === '') {
+		Address::setMsgError("Informe o Número.");
+		header('Location: /checkout');
+		exit;
+	}
 
 	if (!isset($_POST['desdistrict']) || $_POST['desdistrict'] === '') {
 		Address::setMsgError("Informe o bairro.");
@@ -725,6 +730,5 @@ $app->get("/products", function(){
 
 
 });
-
 
 ?>

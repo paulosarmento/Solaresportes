@@ -1,0 +1,35 @@
+{
+    "short_name": "Solar",
+    "name": "Solar Esportes",
+    "description": "S512empre ao seu lado",
+    "icons":[
+        {
+        "src": "res/site/img/logo192.png",
+        "type": "image/png",
+        "sizes": "192x192",
+        "purpose":"any maskable"
+        },
+        {
+        "src": "res/site/img/logo512.png",
+        "type": "image/png",
+        "sizes": "512x512",
+        "purpose":"any maskable"
+        }
+    ],
+    "start_url": ".",
+    "background_color": "#E32119",
+    "display": "fullscreen",
+    "orientation": "potrait-primary",
+    "theme_color": "#FFF22D",
+    "shortcuts": [
+        {
+            "name": "Solar Esportes - Sempre ao seu lado",
+            "short_name": "Solar",
+            "description": "Sempre ao seu lado",
+            "url":"?source=pwa",
+            "icons":[{"src": "res/site/img/logo192.png", "sizes": "192x192" }]
+
+        }
+    ]
+
+}

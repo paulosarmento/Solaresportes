@@ -76,7 +76,7 @@
 <script src="/res/site/js/handlebars-v4.0.10.js"></script>
 
 <!-- Bootstrap JS form CDN -->
-<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
 <!-- jQuery sticky menu -->
 <script src="/res/site/js/owl.carousel.min.js"></script>
@@ -115,6 +115,9 @@
     s0.parentNode.insertBefore(s1,s0);
     })();
 </script>
+<script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/48b62e8b60431df5f9510d601/1562d868d639948787897c815.js");</script>
+<script src="../main.js"></script>
+
     <!--End of Tawk.to Script-->
 </body>
 </html>
